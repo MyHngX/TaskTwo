@@ -1,0 +1,120 @@
+@import "../variables";
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.sideNav {
+  position: fixed;
+  width: 226px;
+  height: 100vh;
+  border-radius: 0px 45px 45px 0px;
+  font-family: Poppins;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  @media screen and (max-width: 992px) {
+    bottom: 0;
+    width: 100%;
+    height: auto;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  & > * {
+    font-family: Poppins;
+  }
+  .logo {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    padding: 52px 20px;
+    .logoText {
+      font-size: $text-2xl;
+      font-weight: 700;
+    }
+    @media screen and (max-width: 992px) {
+      display: none;
+    }
+  }
+  .navList {
+    margin-top: calc(105px - 86px);
+    display: inline-grid;
+    width: 100%;
+    @media screen and (max-width: 992px) {
+      display: flex;
+      margin-top: 0px;
+      justify-content: space-between;
+    }
+    & > * {
+      font-family: Poppins;
+    }
+  }
+  .navBtn {
+    padding-left: 42px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: transparent;
+    gap: 15px;
+    @media screen and (max-width: 992px) {
+      padding: 20px;
+    }
+    span {
+      color: #666;
+      font-size: 20px;
+      font-weight: 600;
+      &:hover{
+        color: $rose-700;
+      }
+      @media screen and (max-width: 992px) {
+        display: none;
+      }
+    }
+
+  }
+  .active {
+    background: rgba(190, 18, 60, 0.1);
+    border-right: 6px solid $rose-700;
+    span {
+      color: $rose-700;
+    }
+    @media screen and (max-width: 992px) {
+      background: none;
+      border-bottom: 6px solid $rose-700;
+      border-right: none;
+    }
+  }
+  .extra {
+    margin: 28px;
+    margin-bottom: 6px;
+    padding: 16px;
+    padding-top: 42px;
+    border-radius: 20px;
+    border: 1px solid rgba(190, 18, 60, 0.7);
+    background: rgba(248, 231, 235, 0.4);
+    display: inline-grid;
+    @media screen and (max-width: 992px) {
+      display: none;
+    }
+    .first {
+      font-size: $text-sm;
+      font-weight: 700;
+      color: rgba(51, 51, 51, 0.8);
+    }
+    .second {
+      font-size: $text-xs;
+      color: #666;
+      font-weight: 500;
+      margin-top: 6px;
+    }
+    button {
+      font-size: $text-xs;
+      font-weight: 700;
+      color: $rose-700;
+      padding: 6px 17px;
+      border-radius: 30px;
+      margin: auto;
+      margin-top: 9px;
+      background: rgba(190, 18, 60, 0.2);
+    }
+  }
+}
