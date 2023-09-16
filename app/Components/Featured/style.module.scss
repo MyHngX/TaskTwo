@@ -2,6 +2,12 @@
 
 .featuredWrapper {
   padding: 70px 95px;
+  @media screen and (max-width: 992px) {
+    padding: 50px 50px;
+  }
+  @media screen and (max-width: 600px) {
+    padding: 50px 30px;
+  }
 }
 
 .title {
@@ -10,6 +16,12 @@
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: capitalize;
+  @media screen and (max-width: 1200px) {
+    font-size: $text-3xl;
+  }
+  @media screen and (max-width: 992px) {
+    font-size: $text-2xl;
+  }
 }
 .moreBtn {
   font-size: $text-xl;
@@ -17,12 +29,29 @@
   align-items: center;
   color: $rose-700;
   background-color: transparent;
+  @media screen and (max-width: 992px) {
+    font-size: $text-base;
+  }
 }
 .cardsWrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 80px;
   margin-top: 44px;
+  @media screen and (max-width: 1200px) {
+    grid-gap: 50px;
+  }
+  @media screen and (max-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+  }
+  @media screen and (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+  }
+  @media screen and (max-width: 476px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 
   .card {
     width: 100%;
@@ -32,10 +61,21 @@
       height: 370px;
       width: 100%;
       object-fit: cover;
+      @media screen and (max-width: 1200px) {
+        height: 300px;
+      }
+      @media screen and (max-width: 476px) {
+        height: 376px;
+      }
     }
     .cardContent {
       display: inline-grid;
       gap: 12px;
+
+      @media screen and (max-width: 992px) {
+        gap: 8px;
+        width: 100%;
+      }
       .release {
         font-weight: 700;
         font-size: $text-xs;
@@ -46,6 +86,11 @@
         font-weight: 700;
         height: 46px;
         color: $gray-900;
+
+          @media screen and (max-width: 992px) {
+            font-size: $text-base;
+            height: fit-content;
+          }
       }
       .extra {
         display: flex;
