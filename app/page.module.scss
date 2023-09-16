@@ -1,0 +1,217 @@
+@import "variables";
+
+.hero {
+  position: relative;
+  .posterImg {
+    object-fit: cover;
+  }
+  @media screen and (max-width: 768px) {
+    height: 400px;
+  }
+  @media screen and (max-width: 360px) {
+    height: 500px;
+  }
+  .heroContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 95px;
+    @media screen and (max-width: 992px) {
+      padding: 15px 50px;
+    }
+    @media screen and (max-width: 600px) {
+      padding: 15px 30px;
+    }
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      @media screen and (max-width: 600px) {
+        gap: 12px;
+      }
+
+      .logoText {
+        color: #fff;
+        font-size: $text-2xl;
+        font-weight: 700;
+        @media screen and (max-width: 600px) {
+          font-size: $text-xl;
+        }
+      }
+    }
+    .searchWrapper {
+      position: relative;
+      width: 525px;
+      @media screen and (max-width: 1200px) {
+        width: 450px;
+      }
+
+      @media screen and (max-width: 992px) {
+        width: 300px;
+      }
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+      .searchInput {
+        padding: 6px 10px;
+        border-radius: 6px;
+        border: 2px solid $gray-300;
+        background: transparent;
+        width: 100%;
+        color: #fff;
+
+        &::placeholder {
+          color: #fff;
+          font-size: $text-base;
+        }
+      }
+      .searchIcon {
+        position: absolute;
+        top: 6px;
+        right: 10px;
+      }
+    }
+    .right {
+      display: flex;
+      gap: 27px;
+      align-items: center;
+      @media screen and (max-width: 600px) {
+        gap: 12px;
+      }
+      .signIn {
+        color: #fff;
+        font-size: $text-base;
+        font-weight: 700;
+        @media screen and (max-width: 600px) {
+          font-size: $text-sm;
+        }
+      }
+      .menu {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: none;
+        padding: 6px;
+        background: $rose-700;
+      }
+    }
+  }
+  .contentWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 93px;
+    @media screen and (max-width: 1200px) {
+      margin-top: 55px;
+    }
+    @media screen and (max-width: 992px) {
+      margin-top: 35px;
+    }
+    .description {
+      width: 404px;
+      color: #fff;
+      display: inline-grid;
+      gap: 16px;
+      @media screen and (max-width: 992px) {
+        width: auto;
+      }
+      .title {
+        font-size: $text-5xl;
+        line-height: 56px;
+        letter-spacing: 3px;
+        @media screen and (max-width: 1200px) {
+          font-size: $text-4xl;
+          line-height: 45px;
+        }
+        @media screen and (max-width: 992px) {
+          font-size: $text-3xl;
+          line-height: 35px;
+        }
+      }
+      .extra {
+        margin-right: 34px;
+        display: inline-flex;
+        align-items: center;
+        span {
+          font-size: $text-xs;
+          font-weight: 400;
+          letter-spacing: 1px;
+          padding-left: 10px;
+        }
+      }
+      .text {
+        width: 302px;
+        font-weight: 500;
+        line-height: 18px;
+        font-size: $text-sm;
+        @media screen and (max-width: 360px) {
+          width: auto;
+        }
+      }
+      .trailerBtn {
+        display: inline-flex;
+        padding: 6px 16px;
+        align-items: center;
+        gap: 8px;
+        border-radius: 6px;
+        background: $rose-700;
+        color: #fff;
+        outline: none;
+        border: none;
+        width: fit-content;
+        span {
+          font-size: $text-sm;
+          text-transform: uppercase;
+          font-weight: 700;
+        }
+      }
+    }
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-right: calc(24px - 96px);
+      @media screen and (max-width: 992px) {
+        margin-right: calc(24px - 50px);
+      }
+      @media screen and (max-width: 600px) {
+        display: none;
+      }
+      button {
+        background: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+        color: $gray-400;
+        font-size: $text-xs;
+        span {
+          padding-left: 6px;
+          text-align: right;
+          @media screen and (max-width: 600px) {
+            padding-left: 3px;
+          }
+        }
+      }
+      .active {
+        font-size: $text-base;
+        color: #fff;
+        @media screen and (max-width: 600px) {
+          font-size: $text-sm;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .dash {
+    width: 14;
+    height: 2px;
+  }
+}

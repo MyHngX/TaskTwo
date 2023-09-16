@@ -1,0 +1,65 @@
+@import "../../variables";
+
+.featuredWrapper {
+  padding: 70px 95px;
+}
+
+.title {
+  font-size: $text-4xl;
+  color: #000;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.moreBtn {
+  font-size: $text-xl;
+  display: flex;
+  align-items: center;
+  color: $rose-700;
+  background-color: transparent;
+}
+.cardsWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 80px;
+  margin-top: 44px;
+
+  .card {
+    width: 100%;
+    box-sizing: border-box;
+
+    .cardImg {
+      height: 370px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .cardContent {
+      display: inline-grid;
+      gap: 12px;
+      .release {
+        font-weight: 700;
+        font-size: $text-xs;
+        color: $gray-400;
+      }
+      .movieTitle {
+        font-size: $text-xl;
+        font-weight: 700;
+        height: 46px;
+        color: $gray-900;
+      }
+      .extra {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        span {
+          font-size: $text-xs;
+          color: $gray-900;
+        }
+      }
+      .genre {
+        color: $gray-400;
+        font-size: $text-xs;
+      }
+    }
+  }
+}
