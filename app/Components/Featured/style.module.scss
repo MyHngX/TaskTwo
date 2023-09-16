@@ -61,6 +61,7 @@
       height: 370px;
       width: 100%;
       object-fit: cover;
+      background: $gray-300;
       @media screen and (max-width: 1200px) {
         height: 300px;
       }
@@ -71,10 +72,10 @@
     .cardContent {
       display: inline-grid;
       gap: 12px;
+      width: 100%;
 
       @media screen and (max-width: 992px) {
         gap: 8px;
-        width: 100%;
       }
       .release {
         font-weight: 700;
@@ -84,13 +85,12 @@
       .movieTitle {
         font-size: $text-xl;
         font-weight: 700;
-        height: 46px;
         color: $gray-900;
 
-          @media screen and (max-width: 992px) {
-            font-size: $text-base;
-            height: fit-content;
-          }
+        @media screen and (max-width: 992px) {
+          font-size: $text-base;
+          height: fit-content;
+        }
       }
       .extra {
         display: flex;

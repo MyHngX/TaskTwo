@@ -1,4 +1,5 @@
-import Image from "next/image";
+'use client'
+
 import styles from "./page.module.scss";
 import Hero from "./Components/Hero";
 import Featured from "./Components/Featured";

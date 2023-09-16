@@ -19,11 +19,16 @@ export default function Hero() {
             <h1 className={style.title}>John Wick 3 : Parabellum</h1>
             <div className="row align-items-center">
               <div className={style.extra}>
-                <Image src={"/images/imdb.png"} width={35} height={17} />
+                <Image src={"/images/imdb.png"} width={35} height={17} alt="" />
                 <span>86.0/100</span>
               </div>
               <div className={style.extra}>
-                <Image src={"/images/tomato.png"} width={16} height={17} />
+                <Image
+                  src={"/images/tomato.png"}
+                  width={16}
+                  height={17}
+                  alt=""
+                />
                 <span>97%</span>
               </div>
             </div>
@@ -33,7 +38,7 @@ export default function Hero() {
               on his head, he is the target of hit men and women everywhere.
             </p>
             <button className={style.trailerBtn}>
-              <Image src={"/images/play.svg"} width={20} height={20} />
+              <Image alt="" src={"/images/play.svg"} width={20} height={20} />
               <span>Watch trailer</span>
             </button>
           </div>
@@ -43,14 +48,18 @@ export default function Hero() {
               .map((_, index) => (
                 <button className={index == 2 ? style.active : null}>
                   {index == 2 && (
-                    <Image src={"/images/minus.svg"} className={style.dash} width={20} height={3} />
+                    <Image
+                      src={"/images/minus.svg"}
+                      className={style.dash}
+                      width={20}
+                      height={3}
+                    />
                   )}
                   <span>{index + 1}</span>
                 </button>
               ))}
           </div>
         </div>
-        
       </div>
     </div>
   );
