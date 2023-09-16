@@ -5,6 +5,7 @@ import axios from "axios";
 import Genre from "./Genre";
 import ImageComp from "../ImageComp";
 import { BeatLoader } from "react-spinners";
+import Link from "next/link";
 
 export default function Featured() {
   const [movies, setMovies] = useState([]);
@@ -69,7 +70,7 @@ export default function Featured() {
       ) : (
         <div className={style.cardsWrapper}>
           {movies.map((detail, index) => (
-            <div key={index} className={style.card} data-testid="movie-card">
+            <Link href={`/movies/${detail.id}`} key={index} className={style.card} data-testid="movie-card">
               <ImageComp
                 className={style.cardImg}
                 src={`${imgUrl}${detail.poster_path}`}
@@ -108,7 +109,7 @@ export default function Featured() {
                   <Genre genreIds={detail.genre_ids} />
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )}

@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 import style from "./sidebar.module.scss";
 import { usePathname } from "next/navigation";
