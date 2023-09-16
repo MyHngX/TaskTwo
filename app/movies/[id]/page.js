@@ -24,13 +24,13 @@ const getMovieDetails = async (params) => {
   return response.json();
 };
 
-const MovieDetails = async (params) => {
+const MovieDetails = async ({params}) => {
   const details = await getMovieDetails(params);
 
   return (
     <div className="details">
       <Sidebar />
-      <Details />
+      <Details details={details} />
     </div>
   );
 };

@@ -62,3 +62,23 @@ input {
 button {
   cursor: pointer;
 }
+
+.error-page {
+  width: 50%;
+  margin: auto;
+  margin-top: 2300px;
+  text-align: center;
+  height: 300px;
+  width: 300px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.error-btn {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 10px;
+  background: var(--rose-700);
+  margin-bottom: 12px;
+  font-family: "DM Sans";
+  padding: 12px 16px;
+}

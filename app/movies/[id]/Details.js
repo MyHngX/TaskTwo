@@ -1,16 +1,24 @@
-'use client'
-
-import { useRouter, useSearchParams } from "next/navigation";
 import style from "./style.module.scss";
 import Image from "next/image";
 
-export default function Details() {
-const router = useRouter()
+export default function Details({ details }) {
+  const imgUrl = process.env.IMG_URL;
 
+  const releaseDate = (date) => {
+    const dateVal = new Date(date);
+    const utcReleaseDateStr = dateVal?.toISOString().split("T")[0];
+
+    return utcReleaseDateStr;
+  };
   return (
     <main className={style.main}>
       <div className={style.posterImg}>
-        <img src="/images/drop.png" alt="" width={"100%"} height={"100%"} />
+        <img
+          src={`${imgUrl}${details.backdrop_path}`}
+          alt=""
+          width={"100%"}
+          height={"100%"}
+        />
         <div className={style.trailerBtn}>
           <button className={style.playBtn}>
             <Image src={"/images/play-deet.png"} width={54} height={54} />
@@ -20,37 +28,40 @@ const router = useRouter()
       </div>
       <div className={style.movieDetails}>
         <div className={style.mainDetails}>
-          <p data-testid="movie-title" >Movie title here</p>
+          <p data-testid="movie-title">{details.title}</p>
           <p className={style.dot}>&#183;</p>
-          <p data-testid="movie-release-date" >2022</p>
+          <p data-testid="movie-release-date">
+            {releaseDate(details.release_date)}
+          </p>
           <p className={style.dot}>&#183;</p>
-          <p>PG-13</p>
-          <p className={style.dot}>&#183;</p>
-          <p data-testid="movie-runtime" >2h 10M</p>
-          <span className={style.genre}>Drama</span>
+          <p>
+            <span data-testid="movie-runtime">{details.runtime}</span> minutes
+          </p>
+          {details.genres.map((el, index) => (
+            <span className={style.genre} key={index}>
+              {el.name}
+            </span>
+          ))}
         </div>
         <div className={style.ratings}>
           <Image src={"/images/star.png"} alt="" width={30} height={25} />
-          <spam>3.5</spam>
+          <spam>{details.vote_average}</spam>
         </div>
       </div>
       <div className={style.rowSection}>
         <div className={style.description}>
-          <p className={style.overview} data-testid="movie-overview" >
-            After thirty years, Maverick is still pushing the envelope as a top
-            naval aviator, but must confront ghosts of his past when he leads
-            TOP GUN's elite graduates on a mission that demands the ultimate
-            sacrifice from those chosen to fly it.
+          <p className={style.overview} data-testid="movie-overview">
+            {details.overview}
           </p>
           <div className={style.list}>
             <p>
-              Director: <span>name</span>
+              Director: <span>Joseph Kosinski</span>
             </p>
             <p>
-              Writers: <span>jim</span>
+              Writers: <span>Jim Cash, Jack Epps Jr, Peter Craigm</span>
             </p>
             <p>
-              Stars: <span>Tom</span>
+              Stars: <span>Tom Cruise, Jennifer Connelly, Miles Teller</span>
             </p>
             <div className={style.award}>
               <button className={style.topRatedBtn}>
