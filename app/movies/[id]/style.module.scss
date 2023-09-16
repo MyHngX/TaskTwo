@@ -86,7 +86,6 @@
       @media screen and (max-width: 992px) {
         flex-wrap: wrap;
       }
-      
     }
     .genre {
       padding: 4px 17px;
@@ -172,7 +171,6 @@
             font-size: 20px;
             font-weight: 500;
             flex-grow: 1;
-           
           }
           @media screen and (max-width: 992px) {
             font-size: $text-base;
@@ -216,7 +214,7 @@
           grid-template-columns: repeat(3, 1fr);
           .card {
             background: lightgray;
-            height: calc(229px + 42px);
+            height: 229px;
             border-radius: 10px;
           }
         }
@@ -231,8 +229,9 @@
           bottom: 0;
         }
       }
-      @media screen and  (max-width: 992px){
-        .showTime, .watchOptions{
+      @media screen and (max-width: 992px) {
+        .showTime,
+        .watchOptions {
           font-size: $text-base;
         }
       }
