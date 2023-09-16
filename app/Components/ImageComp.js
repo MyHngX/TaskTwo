@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-export default function ImageComp({ src, alt, width, height, className }) {
+export default function ImageComp({ id, src, alt, width, height, className }) {
   const [imageExists, setImageExists] = useState(true);
 
   useEffect(() => {
@@ -20,6 +20,7 @@ export default function ImageComp({ src, alt, width, height, className }) {
       width={width}
       height={height}
       className={className}
+      data-testid={id}
     />
   ) : (
     <div className={className}></div>

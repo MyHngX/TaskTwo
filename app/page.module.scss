@@ -209,6 +209,28 @@
     }
   }
 }
+.footer {
+  width: 100%;
+  display: inline-grid;
+  gap: 36px;
+  justify-content: center;
+  padding-top: calc(147px - 70px);
+  padding-bottom: 73.57px;
+
+  .row {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    p {
+      color: $gray-900;
+      font-size: $text-base;
+    }
+    @media screen and (max-width: 600px) {
+      gap: 20px;
+    }
+  }
+}
 @media screen and (max-width: 600px) {
   .dash {
     width: 14;

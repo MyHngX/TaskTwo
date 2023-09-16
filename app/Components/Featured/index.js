@@ -4,14 +4,18 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Genre from "./Genre";
 import ImageComp from "../ImageComp";
+import { BeatLoader } from "react-spinners";
 
 export default function Featured() {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const ApiLink = process.env.BASE_URL;
   const ApiKey = process.env.API_KEY;
   const imgUrl = process.env.IMG_URL;
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get(`${ApiLink}/movie/top_rated`, {
         params: {
@@ -21,19 +25,20 @@ export default function Featured() {
       .then((res) => {
         const data = res.data.results;
         setMovies(data.slice(0, 10));
+        setLoading(false);
       })
       .catch((err) => {
+        setError(true);
         console.log(err.response, "here");
+        setLoading(false);
       });
   }, [ApiLink, ApiKey]);
-
-  console.log(movies);
 
   const releaseDate = (date) => {
     const dateVal = new Date(date);
     const utcReleaseDateStr = dateVal.toISOString().split("T")[0];
 
-    return utcReleaseDateStr
+    return utcReleaseDateStr;
   };
   return (
     <div className={style.featuredWrapper}>
@@ -49,46 +54,64 @@ export default function Featured() {
           />
         </button>
       </div>
-      <div className={style.cardsWrapper}>
-        {movies.map((detail, index) => (
-          <div className={style.card}>
-            <ImageComp
-              className={style.cardImg}
-              src={`${imgUrl}${detail.poster_path}`}
-              width={"100%"}
-              height={"100%"}
-            />
-            <div className={style.cardContent}>
-              <p className={style.release}>
-                <span data-testid="movie-release-date">
-                  {releaseDate(detail.release_date)}
-                </span>{" "}
-              </p>
-              <h3 className={style.movieTitle} data-testid="movie-title">
-                {detail.title}
-              </h3>
-              <div className="row justify-content-between align-items-center">
-                <div className={style.extra}>
-                  <Image src={"/images/imdb.png"} width={35} height={17} />
-                  <span>{detail.vote_average * 10} / 100</span>
-                </div>
-                <div className={style.extra}>
-                  <Image
-                    alt=""
-                    src={"/images/tomato.png"}
-                    width={16}
-                    height={17}
-                  />
-                  <span>{detail.vote_average * 10}%</span>
-                </div>
+      {loading ? (
+        <div
+          style={{
+            width: "fit-content",
+            margin: "auto",
+            marginTop: "70px",
+          }}
+        >
+          <BeatLoader color="var(--rose-700)" size={25} />
+        </div>
+      ) : error ? (
+        "An error occured"
+      ) : (
+        <div className={style.cardsWrapper}>
+          {movies.map((detail, index) => (
+            <div key={index} className={style.card} data-testid="movie-card">
+              <ImageComp
+                className={style.cardImg}
+                src={`${imgUrl}${detail.poster_path}`}
+                width={"100%"}
+                height={"100%"}
+                id={"movie-poster"}
+              />
+              <div className={style.fav}>
+                <img src="/images/heart.svg" alt="" />
               </div>
-              <div className={style.genre}>
-                <Genre genreIds={detail.genre_ids} />
+              <div className={style.cardContent}>
+                <p className={style.release}>
+                  <span data-testid="movie-release-date">
+                    {releaseDate(detail.release_date)}
+                  </span>
+                </p>
+                <h3 className={style.movieTitle} data-testid="movie-title">
+                  {detail.title}
+                </h3>
+                <div className="row justify-content-between align-items-center">
+                  <div className={style.extra}>
+                    <Image src={"/images/imdb.png"} width={35} height={17} />
+                    <span>{detail.vote_average * 10} / 100</span>
+                  </div>
+                  <div className={style.extra}>
+                    <Image
+                      alt=""
+                      src={"/images/tomato.png"}
+                      width={16}
+                      height={17}
+                    />
+                    <span>{detail.vote_average * 10}%</span>
+                  </div>
+                </div>
+                <div className={style.genre}>
+                  <Genre genreIds={detail.genre_ids} />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

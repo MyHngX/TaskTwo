@@ -56,7 +56,19 @@
   .card {
     width: 100%;
     box-sizing: border-box;
-
+    position: relative;
+    .fav {
+      position: absolute;
+      top: 15.56px;
+      right: 16px;
+      width: 30px;
+      height: 29.211px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(243, 244, 246, 0.5);
+    }
     .cardImg {
       height: 370px;
       width: 100%;
